@@ -1,32 +1,30 @@
-import React, { useState } from "react";
-import CurrentWeather from "./CurrentWeather";
 
-function SearchBar({setCity}) {
-  const [input, setInput] = useState();
 
-  // for change
-  function handelChange(event) {
-    setInput(event.target.value);
-  }
 
-  // for click
-  function handleClick() {
-    setCity(input)
-  }
+import React from 'react'
 
+function SearchBar({city, setCity, getData}) {
   return (
-    <>
       <div className="search-wrapper">
         <input
-          placeholder="Search city..."
+          onChange={(e) => {
+            setCity(e.target.value);
+          }}
+          value={city}
           type="text"
-          value={input}
-          onChange={handelChange}
+          placeholder="Search city..."
+          onKeyDown={(e) => {
+            if(e.key === "Enter"){
+              getData()
+            }
+          }}
         />
-        <button onClick={handleClick}>Search</button>
+        <button onClick={getData}>Search</button>
+          <p className="error-message">
+          </p>
+        
       </div>
-    </>
-  );
+  )
 }
 
-export default SearchBar;
+export default SearchBar

@@ -1,12 +1,11 @@
-import React from 'react'
 
+import React from 'react'
 
 function Footer() {
   return (
-    <div>
-      <footer>© 2026 BiteX. All rights reserved.
-</footer>
-    </div>
+      <footer className="footer">
+        <p>© {new Date().getFullYear()} BiteX. All rights reserved. </p>
+      </footer>
   )
 }
 
